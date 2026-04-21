@@ -26,6 +26,15 @@
     ");
     $stmt1->execute();
     echo(" tblplayers made");
+    $stmt1 = $conn->prepare("INSERT INTO tblplayers
+    (PlayerID, Firstname, Lastname, Email, Password, PositionID, Role)
+    VALUES
+    (NULL,'Jonny', 'Dyer', 'dyer.jl@oundleschool.org.uk', 'footballer!123', 'LW', 0),
+    (NULL,'Charlie', 'Hoyle', 'hoyle.c@oundleschool.org.uk', 'theGaffer45', 'ST', 2),
+    (NULL,'Oscar', 'Perring', 'perring.o@oundleschool.org.uk', 'bestmidfielder', 'CM', 1),
+    (NULL,'Thomas', 'Mills', 'mills.t@oundleschool.org.uk', 'goalscorer200', 'RW', 0)
+    ");
+    $stmt1->execute();
 
     #creates tblteams
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblteams;
@@ -36,6 +45,13 @@
     ");
     $stmt1->execute();
     echo(" tblteams made");
+    $stmt1 = $conn->prepare("INSERT INTO tblteams
+    (TeamID, Teamname, ManagerID)
+    VALUES
+    (NULL,'Founders FC', 2),
+    (NULL,'Eze Cash', 3)
+    ");
+    $stmt1->execute();
 
     #creates tblplayerinteam
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblplayerinteam;
@@ -45,6 +61,13 @@
     ");
     $stmt1->execute();
     echo(" tblplayerinteam made");
+    $stmt1 = $conn->prepare("INSERT INTO tblplayerinteam
+    (PlayerID, TeamID)
+    VALUES
+    (1,2),
+    (4,2)
+    ");
+    $stmt1->execute();
 
     #creates tblfixtures
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblfixtures;
@@ -60,6 +83,12 @@
     ");
     $stmt1->execute();
     echo(" tblfixtures made");
+    $stmt1 = $conn->prepare("INSERT INTO tblfixtures
+    (FixtureID, Team1ID, Team1Goals, Team2ID, Team2Goals, Gameweek, Date)
+    VALUES
+    (NULL, 1, 2, 2, 3, 5, '2026-03-16 21:30:00')
+    ");
+    $stmt1->execute();
     
 ?>
 
