@@ -26,15 +26,19 @@
     ");
     $stmt1->execute();
     echo(" tblplayers made");
+    $hashedpassword=password_hash("password", PASSWORD_DEFAULT);
+    echo($hashedpassword);
     $stmt1 = $conn->prepare("INSERT INTO tblplayers
     (PlayerID, Firstname, Lastname, Email, Password, PositionID, Role)
     VALUES
-    (NULL,'Jonny', 'Dyer', 'dyer.jl@oundleschool.org.uk', 'footballer!123', 'LW', 0),
-    (NULL,'Charlie', 'Hoyle', 'hoyle.c@oundleschool.org.uk', 'theGaffer45', 'ST', 2),
-    (NULL,'Oscar', 'Perring', 'perring.o@oundleschool.org.uk', 'bestmidfielder', 'CM', 1),
-    (NULL,'Thomas', 'Mills', 'mills.t@oundleschool.org.uk', 'goalscorer200', 'RW', 0)
+    (NULL,'Jonny', 'Dyer', 'dyer.jl@oundleschool.org.uk', :Password, 'LW', 0),
+    (NULL,'Charlie', 'Hoyle', 'hoyle.c@oundleschool.org.uk', :Password, 'ST', 2),
+    (NULL,'Oscar', 'Perring', 'perring.o@oundleschool.org.uk', :Password, 'CM', 1),
+    (NULL,'Thomas', 'Mills', 'mills.t@oundleschool.org.uk', :Password, 'RW', 0)
     ");
+    $stmt1->bindParam(":Password",$hashedpassword);
     $stmt1->execute();
+    
 
     #creates tblteams
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblteams;
