@@ -26,7 +26,8 @@
     ");
     $stmt1->execute();
     echo(" tblplayers made");
-    $hashedpassword=password_hash("password", PASSWORD_DEFAULT);
+
+    $hashedpassword=password_hash("Password", PASSWORD_DEFAULT);
     echo($hashedpassword);
     $stmt1 = $conn->prepare("INSERT INTO tblplayers
     (PlayerID, Firstname, Lastname, Email, Password, PositionID, Role)
