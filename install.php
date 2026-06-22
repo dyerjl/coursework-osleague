@@ -54,7 +54,10 @@
     (TeamID, Teamname, ManagerID)
     VALUES
     (NULL,'Founders FC', 2),
-    (NULL,'Eze Cash', 3)
+    (NULL,'Eze Cash', 3),
+    (NULL,'Inter Yannan', 4),
+    (NULL,'Gwebbs All Stars', 1),
+    (NULL,'Team Goose', 5)
     ");
     $stmt1->execute();
 
